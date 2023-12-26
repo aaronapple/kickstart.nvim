@@ -222,7 +222,12 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',
+    opts = {
+      toggler = { line = '<leader>//', block='gbc' },
+      opleader = { line = '<leader>/', block='gb' },
+    },
+  },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -610,9 +615,12 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load()
 
+require('luasnip.loaders.from_vscode').lazy_load()
 require'luasnip'.add_snippets('supercollider', require'scnvim.utils'.get_snippets())
+
+-- custom snippets path
+vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/lua_snippets"
 
 luasnip.config.setup {}
 
@@ -663,15 +671,6 @@ cmp.setup {
 
 
 -- [[custom settings and configs ]]
-
--- custom snippets path
--- vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/lua_snippets"
-
--- supercollider snippets
--- require'luasnip'.add_snippets('supercollider', require'scnvim.utils'.get_snippets())
-
--- rainbow
--- vim.g.rainbow_active = 1
 
 -- tidalvim
 vim.g.tidal_target = "tmux"
