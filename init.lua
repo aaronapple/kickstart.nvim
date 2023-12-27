@@ -619,11 +619,12 @@ mason_lspconfig.setup_handlers {
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
 
-require('luasnip.loaders.from_vscode').lazy_load()
+-- require('luasnip.loaders.from_vscode').lazy_load()
 require'luasnip'.add_snippets('supercollider', require'scnvim.utils'.get_snippets())
 
 -- custom snippets path
 vim.g.lua_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/lua_snippets"
+require("luasnip.loaders.from_lua").lazy_load {paths = vim.g.lua_snippets_path }
 
 luasnip.config.setup {}
 

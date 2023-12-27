@@ -1,8 +1,8 @@
 -- SuperCollider snippets for LuaSnip
 local ls = require'luasnip'
-local s = ls.snippet 
+local s = ls.snippet
 local i = ls.insert_node
-local t = ls.text_node
+-- local t = ls.text_node
 local fmta = require("luasnip.extras.fmt").fmta
 local snippets = {
 s("synthdpb", fmta([[
