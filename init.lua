@@ -187,6 +187,7 @@ require('lazy').setup({
   },
 
   -- color theme
+  -- {'navarasu/onedark.nvim'},
   { "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
@@ -673,6 +674,39 @@ cmp.setup {
   },
 }
 
+-- [[ configure lualine]]
+
+-- get supercollider server status for lualine
+local function scstatus()
+	if vim.bo.filetype == "supercollider" then
+		stat = vim.fn["scnvim#statusline#server_status"]()
+		stat = stat:gsub("%%", "♪")
+		return stat
+	else
+		return ""
+	end
+end
+
+require('lualine').setup {
+  options = {
+    -- theme = 'onedark'
+    theme = 'catppuccin'
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename', scstatus},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+}
+
+-- [[ onedark config ]]
+-- require('onedark').setup {
+--   style = 'deep'
+-- }
+-- require('onedark').load()
 
 -- [[custom settings and configs ]]
 
@@ -688,6 +722,7 @@ vim.g.slime_default_config = {socket_name="default", target_pane=1}
 -- python
 -- vim.g.python3_host_prog = '/home/aaron/.pyenv/versions/neovim3/bin/python'
 
+vim.o.equalalways = false
 
 
 

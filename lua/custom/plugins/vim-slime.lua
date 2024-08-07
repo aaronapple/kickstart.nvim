@@ -1,4 +1,4 @@
 return {
   "jpalardy/vim-slime",
-  ft = "python"
+  ft = {"python", "R"}
 }
