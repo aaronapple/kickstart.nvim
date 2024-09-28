@@ -881,6 +881,17 @@ require('lazy').setup({
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
+
+      -- local function scstatus()
+      --   if vim.bo.filetype == "supercollider" then
+      --     stat = vim.fn["scnvim#statusline#server_status"]()
+      --     stat = stat:gsub("%%", "♪")
+      --     return stat
+      --   else
+      --     return ""
+      --   end
+      -- end
+
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
       statusline.setup { use_icons = vim.g.have_nerd_font }
@@ -910,7 +921,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'supercollider' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
