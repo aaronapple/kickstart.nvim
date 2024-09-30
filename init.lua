@@ -157,6 +157,10 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Set line wrapping for text and md iles
+-- vim.cmd [[autocmd FileType markdown set tw=80 wrap linebreak]]
+-- vim.cmd [[autocmd FileType text set tw=80 wrap linebreak]]
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -841,6 +845,7 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+      require('mini.bracketed').setup()
     end,
   },
   { -- Highlight, edit, and navigate code
