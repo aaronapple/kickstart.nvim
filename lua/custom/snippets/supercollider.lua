@@ -2,6 +2,11 @@ local ls = require 'luasnip'
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
+local f = ls.function_node
+
+local function copy(args)
+  return args[1]
+end
 
 return {
   s('synth', {
@@ -22,13 +27,17 @@ return {
     t { ',', '' },
     t { '    Pbind(', '' },
     t { '        \\instrument, \\' },
-    i(2, 'name'),
+    f(copy, 1),
     t { ',', '' },
-    t { '        \\dur, ' },
-    i(3, '1'),
-    t { ',', '' },
+    t { '        \\dur, 1,', '' },
     t { '    )', '' },
     t { ').quant_(1);', '' },
-    t { ');' },
+    t { ');', '' },
+    t { 'Pdef(\\' },
+    f(copy, 1),
+    t { ').play;', '' },
+    t { 'Pdef(\\' },
+    f(copy, 1),
+    t { ').stop;' },
   }),
 }
