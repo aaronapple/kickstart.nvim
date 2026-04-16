@@ -1,6 +1,7 @@
 return {
-  { 'HiPhish/rainbow-delimiters.nvim', enabled = true },
+  { 'HiPhish/rainbow-delimiters.nvim', enabled = false },
   { 'MeanderingProgrammer/render-markdown.nvim', enabled = false },
-  { 'mikavilpas/yazi.nvim', enabled = true },
-  { 'typicode/bg.nvim', lazy = false },
+  -- { 'nvim-telescope/telescope.nvim', enabled = true },
+  { 'typicode/bg.nvim', enabled = false },
+  { 'Vigemus/iron.nvim', enabled = false },
 }

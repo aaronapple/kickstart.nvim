@@ -31,6 +31,9 @@ return {
   opts = {
     -- if you want to open yazi instead of netrw, see below for more info
     open_for_directories = false,
+    -- yazi_floating_window_zindex = 1,
+    floating_window_scaling_factor = 1,
+    yazi_floating_window_border = 'none',
     keymaps = {
       show_help = '<f1>',
     },
