@@ -9,6 +9,16 @@ local function copy(args)
 end
 
 return {
+  s('angel', {
+    t { 'a = Angel.new();' },
+  }),
+  s('chain', {
+    t { 'c = Chain.new(' },
+    i(1, 'n_children'),
+    t { ', ' },
+    i(2, 'n_busses'),
+    t { ');' },
+  }),
   s('synth', {
     t { '(', '' },
     t { 'SynthDef(\\' },

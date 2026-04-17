@@ -29,7 +29,7 @@ return {
       '<leader>/',
       mode = { 'n' },
       function()
-        require('fzf-lua').grep_curbuf()
+        require('fzf-lua').blines()
       end,
       desc = '[ ]/ Grep in current buffer',
     },
