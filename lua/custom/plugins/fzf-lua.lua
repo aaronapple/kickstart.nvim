@@ -113,5 +113,59 @@ return {
       end,
       desc = '[S]earch Recent Files ("." for repeat)',
     },
+    {
+      'grr',
+      mode = { 'n' },
+      function()
+        -- Find references for the word under your cursor.
+        require('fzf-lua').lsp_references()
+      end,
+      desc = '[G]oto [R]eferences',
+    },
+    {
+      'gri',
+      mode = { 'n' },
+      function()
+        -- Jump to the implementation of the word under your cursor.
+        require('fzf-lua').lsp_implementations()
+      end,
+      desc = '[G]oto [I]mplementation',
+    },
+    {
+      'grd',
+      mode = { 'n' },
+      function()
+        -- Jump to the definition of the word under your cursor.
+        --  To jump back, press <C-t>.
+        require('fzf-lua').lsp_definitions()
+      end,
+      desc = '[G]oto [D]efinition',
+    },
+    {
+      'gO',
+      mode = { 'n' },
+      function()
+        require('fzf-lua').lsp_document_symbols()
+      end,
+      desc = 'Open Document Symbols',
+    },
+    {
+      'gW',
+      mode = { 'n' },
+      function()
+        -- Fuzzy find all the symbols in your current workspace.
+        require('fzf-lua').lsp_live_workspace_symbols()
+      end,
+      desc = 'Open Workspace Symbols',
+    },
+    {
+      'grt',
+      mode = { 'n' },
+      function()
+        -- Fuzzy find all the symbols in your current workspace.
+        require('fzf-lua').lsp_typedefs()
+      end,
+      desc = '[G]oto [T]ype Definition',
+    },
   },
 }
